@@ -48,6 +48,8 @@ $border: #dcd9d9;
 $heading: #374054;
 $text: #74808a;
 
+$in-progress: red;
+
 /*
     ---------------------
     ----- 2. Mixins -----
@@ -93,6 +95,7 @@ body {
         z-index: -1;
     }
 }
+
 
 // No JS styles
 .no-js {
@@ -345,6 +348,23 @@ footer {
     --------------------------
 */
 
+
+#social-row-top{
+    a {
+        display: block;
+        color: #e2f7ff;
+        padding: 20px;
+
+        &:hover {
+            color: $base-color;
+        }
+    }
+
+    .social {
+        text-align: center;
+    }
+}
+
 #lead {
     position: relative;
     height: 100vh;
@@ -354,6 +374,10 @@ footer {
     background-size: cover;
     padding: 15px;
     overflow: hidden;
+}
+
+#in-progress {
+  color: #ff4538 !important;
 }
 
 #lead-content {
@@ -378,6 +402,7 @@ footer {
     }
 
     h2 {
+        //color: lighten($base-color, 25%);
         color: lighten($base-color, 25%);
         font-weight: 500;
         font-size: 2.25em;
@@ -652,6 +677,16 @@ footer {
 
 .project-image {
     float: left;
+}
+
+#solar-image{
+    max-width: 500px;
+    max-height: 300px;
+}
+
+.npm-logo{
+    max-width: 300px;
+    min-height: 150px;
 }
 
 .project-info {
