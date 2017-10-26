@@ -48,7 +48,6 @@ $border: #dcd9d9;
 $heading: #374054;
 $text: #74808a;
 
-$in-progress: red;
 
 /*
     ---------------------
@@ -348,6 +347,10 @@ footer {
     --------------------------
 */
 
+#resume-container{
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+}
 
 #social-row-top{
     a {
@@ -374,10 +377,6 @@ footer {
     background-size: cover;
     padding: 15px;
     overflow: hidden;
-}
-
-#in-progress {
-  color: #ff4538 !important;
 }
 
 #lead-content {
