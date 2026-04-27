@@ -12,6 +12,57 @@
 
 (function ($) {
 
+    // --- DYNAMIC CONTENT FROM CV-DATA.JS ---
+
+    // 0. Render Name, Title and Blurb
+    if (typeof cvName !== 'undefined') {
+        $('#lead h1').text(cvName);
+    }
+    if (typeof title !== 'undefined') {
+        $('#lead h2').text(title);
+    }
+    if (typeof blurb !== 'undefined') {
+        $('#about .col-md-8').html(`<p>${blurb}</p>`);
+    }
+
+    // 1. Render Experience
+    if (typeof experiencesList !== 'undefined') {
+        const experienceHtml = experiencesList.map(exp => `
+            <div data-date="${exp.dateStart} – ${exp.dateEnd || 'Present'}">
+                <h3>${exp.location}</h3>
+                <h4>${exp.title}</h4>
+                ${exp.descriptionItems.map(item => `<p>${item}</p><br>`).join('')}
+            </div>
+        `).join('');
+        $('#experience-timeline').html(experienceHtml);
+    }
+
+    // // 2. Render Education
+    // if (typeof educationList !== 'undefined') {
+    //     const educationHtml = educationList.map(edu => `
+    //         <div class="education-block">
+    //             <h3>${edu.location}</h3>
+    //             <span class="education-date">${edu.dateStart}${edu.dateEnd ? ' - ' + edu.dateEnd : ''}</span>
+    //             <h4>${edu.title}</h4>
+    //             ${edu.description ? `<p>${edu.description}</p>` : ''}
+    //         </div>
+    //     `).join('');
+    //     $('#education').append(educationHtml);
+    // }
+
+    // 3. Render Skills
+    if (typeof skillsLists !== 'undefined') {
+        const skillsHtml = skillsLists.map(list => `
+            <ul>
+                ${list.map(skill => `<li>${skill}</li>`).join('')}
+            </ul>
+        `).join('');
+        $('#skills').append(skillsHtml);
+    }
+    // ---------------------------------------
+
+
+
     // Show current year
     $("#current-year").text(new Date().getFullYear());
 
